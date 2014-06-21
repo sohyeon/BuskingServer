@@ -1,0 +1,2 @@
+serviceClass: buskingserver.client.GreetingService
+path: 20F65B585AA2BFA90B689AB4E7968A58.gwt.rpc

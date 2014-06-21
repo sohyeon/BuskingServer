@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5"
+         xmlns="http://java.sun.com/xml/ns/javaee">
+
+  <!-- Servlets -->
+  <servlet>
+    <servlet-name>Buskingserver</servlet-name>
+    <servlet-class>buskingserver.Gae2AndroidServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Buskingserver</servlet-name>
+    <url-pattern>/buskingserver</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+		<welcome-file>BuskingServer.html</welcome-file>
+	</welcome-file-list>
+	
+	<security-constraint>
+	<web-resource-collection>
+		<web-resource-name>profile</web-resource-name>
+		<url-pattern>/*</url-pattern>
+	</web-resource-collection>
+	<user-data-constraint>
+		<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+	</user-data-constraint>
+	</security-constraint>
+	
+</web-app>

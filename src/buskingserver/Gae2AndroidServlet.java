@@ -17,17 +17,26 @@ public class Gae2AndroidServlet extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
     	 String name = req.getParameter("name");
-    	 resp.getWriter().println(add(name));
+    	 String pr = req.getParameter("pr");
+    	 String date = req.getParameter("date");
+    	 String latitude = req.getParameter("latitude");
+    	 String longitude = req.getParameter("longitude");
+    	 
+    	 resp.getWriter().println(add(name, pr, date, latitude, longitude));
     }
-	public String add(String name)
+	public String add(String name, String pr, String date, String latitude, String longitude)
 	{
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 		
-		Entity test = new Entity("test");
+		Entity place = new Entity("Place");
 		
-		test.setProperty("name", name);
+		place.setProperty("name", name);
+		place.setProperty("pr", pr);
+		place.setProperty("date", date);
+		place.setProperty("latitude", latitude);
+		place.setProperty("longitude", longitude);
 		
-		datastore.put(test);
+		datastore.put(place);
 		
 		return "Gae2AndroidServlet OK";
 	}

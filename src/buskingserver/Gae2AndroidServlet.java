@@ -28,7 +28,6 @@ public class Gae2AndroidServlet extends HttpServlet {
 	public String add(String name, String pr, String date, String time, String latitude, String longitude)
 	{
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-		
 		Entity perfor = new Entity("Perfor");
 		
 		perfor.setProperty("name", name);

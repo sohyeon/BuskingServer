@@ -19,25 +19,27 @@ public class Gae2AndroidServlet extends HttpServlet {
     	 String name = req.getParameter("name");
     	 String pr = req.getParameter("pr");
     	 String date = req.getParameter("date");
+    	 String time = req.getParameter("time");
     	 String latitude = req.getParameter("latitude");
     	 String longitude = req.getParameter("longitude");
     	 
-    	 resp.getWriter().println(add(name, pr, date, latitude, longitude));
+    	 resp.getWriter().println(add(name, pr, date, time, latitude, longitude));
     }
-	public String add(String name, String pr, String date, String latitude, String longitude)
+	public String add(String name, String pr, String date, String time, String latitude, String longitude)
 	{
 		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
 		
-		Entity place = new Entity("Place");
+		Entity perfor = new Entity("Perfor");
 		
-		place.setProperty("name", name);
-		place.setProperty("pr", pr);
-		place.setProperty("date", date);
-		place.setProperty("latitude", latitude);
-		place.setProperty("longitude", longitude);
+		perfor.setProperty("name", name);
+		perfor.setProperty("pr", pr);
+		perfor.setProperty("date", date);
+		perfor.setProperty("time", time);
+		perfor.setProperty("latitude", latitude);
+		perfor.setProperty("longitude", longitude);
 		
-		datastore.put(place);
+		datastore.put(perfor);
 		
-		return "Gae2AndroidServlet OK";
+		return "DataStore OK";
 	}
 }

@@ -1,2 +1,3 @@
 # Module buskingserver
 # RPC service class, partial path of RPC policy file
+buskingserver.client.GreetingService, 20F65B585AA2BFA90B689AB4E7968A58.gwt.rpc
